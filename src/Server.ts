@@ -1,6 +1,7 @@
 import {join} from "path";
 import {Configuration} from "@tsed/di";
 import "@tsed/platform-express"; // /!\ keep this import
+import "@tsed/swagger"; // /!\ keep this import
 import "@tsed/ajv";
 import {config} from "./config/index";
 import * as rest from "./controllers/rest/index";
@@ -32,6 +33,11 @@ import * as rest from "./controllers/rest/index";
   },
   exclude: [
     "**/*.spec.ts"
+  ],
+  swagger: [
+    {
+      path: "/doc"
+    }
   ]
 })
 export class Server {

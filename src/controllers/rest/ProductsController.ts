@@ -1,6 +1,7 @@
 import {Controller, Inject} from "@tsed/di";
 import {Get, Returns} from "@tsed/schema";
 import {ProductsService} from "../../services/ProductsService";
+import {Product} from "../../models/Product";
 
 @Controller("/products")
 export class ProductsController {
@@ -8,7 +9,7 @@ export class ProductsController {
   protected productsService: ProductsService;
 
   @Get("/")
-  @Returns(200, Array).Of(Object).ContentType("application/json")
+  @Returns(200, Array).Of(Product).ContentType("application/json")
   getAll() {
     return this.productsService.getAll();
   }
